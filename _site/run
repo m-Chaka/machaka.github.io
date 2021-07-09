@@ -1,0 +1,2 @@
+cd '/Volumes/BarryLee/Personal_website_2021'
+bundle exec jekyll serve
