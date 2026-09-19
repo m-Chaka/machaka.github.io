@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Ronald Machaka — Materials Engineer & AI Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:        #1a1c1e;
+      --ink-mid:    #3d4148;
+      --ink-light:  #6b717a;
+      --rule:       #d8dade;
+      --bg:         #f7f8f9;
+      --surface:    #ffffff;
+      --accent:     #1a5c96;
+      --accent-soft:#e8f0f8;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    *, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+
+    html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: env(safe-area-inset-top, 0px);
+      background: rgba(247,248,249,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+      z-index: 100;
+    }
+    nav .inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+    nav .logo {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: .01em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+    nav a {
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      text-decoration: none;
+      letter-spacing: .03em;
+      transition: color .15s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: end;
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero-name {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -.01em;
+      color: var(--ink);
+    }
+    .hero-cred {
+      display: inline-block;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ink-light);
+      margin-top: 10px;
+    }
+    .hero-bio {
+      margin-top: 20px;
+      font-size: .92rem;
+      color: var(--ink-mid);
+      max-width: 56ch;
+      line-height: 1.7;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      padding: 5px 12px;
+      transition: background .15s, color .15s;
+    }
+    .hero-links a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .hero-avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      border: 3px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+
+    /* ── SECTION ── */
+    section { padding: 52px 0 0; }
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--ink);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 8px;
+      margin-bottom: 32px;
+      display: inline-block;
+    }
+
+    /* ── HERO STATS ── */
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+      margin-top: 24px;
+    }
+    .stat { display: flex; flex-direction: column; }
+    .stat-n {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .stat-l {
+      font-size: .72rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      letter-spacing: .04em;
+      margin-top: 2px;
+    }
+
+    /* ── INTERESTS CHIPS ── */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .chip {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 4px 12px;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .01em;
+    }
+
+    /* ── TIMELINE (experience / education) ── */
+    .timeline { display: flex; flex-direction: column; gap: 28px; }
+    .tl-item { display: grid; grid-template-columns: 120px 1fr; gap: 0 20px; }
+    .tl-date {
+      font-size: .75rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      padding-top: 3px;
+      text-align: right;
+      line-height: 1.4;
+    }
+    .tl-body { border-left: 2px solid var(--rule); padding-left: 20px; padding-bottom: 4px; }
+    .tl-title {
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .tl-org {
+      font-size: .82rem;
+      color: var(--accent);
+      margin-top: 2px;
+      font-style: italic;
+    }
+    .tl-desc {
+      font-size: .83rem;
+      color: var(--ink-mid);
+      margin-top: 8px;
+      line-height: 1.65;
+    }
+    .tl-desc ul { padding-left: 16px; }
+    .tl-desc li { margin-bottom: 4px; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { display: flex; flex-direction: column; gap: 20px; }
+    .pub-item { border-left: 3px solid var(--accent-soft); padding-left: 16px; }
+    .pub-title { font-size: .9rem; font-weight: 500; color: var(--ink); line-height: 1.45; }
+    .pub-title em { font-style: italic; font-family: 'EB Garamond', serif; font-size: 1rem; }
+    .pub-meta { font-size: .78rem; color: var(--ink-light); margin-top: 4px; }
+    .pub-tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: .68rem;
+      padding: 1px 7px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    /* ── PATENTS ── */
+    .patent-list { display: flex; flex-direction: column; gap: 16px; }
+    .patent-item { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 20px; }
+    .patent-id { font-size: .72rem; font-weight: 500; color: var(--accent); letter-spacing: .04em; margin-bottom: 4px; }
+    .patent-title { font-size: .88rem; color: var(--ink); line-height: 1.5; }
+    .patent-meta { font-size: .76rem; color: var(--ink-light); margin-top: 6px; }
+
+    /* ── AWARDS ── */
+    .awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+    .award-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 18px 20px; }
+    .award-year { font-size: .72rem; font-weight: 500; color: var(--accent); letter-spacing: .06em; margin-bottom: 6px; }
+    .award-title { font-size: .88rem; font-weight: 500; color: var(--ink); line-height: 1.4; }
+    .award-body { font-size: .78rem; color: var(--ink-mid); margin-top: 6px; line-height: 1.55; }
+    .award-amount { font-size: .75rem; color: var(--ink-light); margin-top: 6px; font-style: italic; }
+
+    /* ── TALKS ── */
+    .talk-list { display: flex; flex-direction: column; gap: 16px; }
+    .talk-item { display: grid; grid-template-columns: 90px 1fr; gap: 0 16px; align-items: start; }
+    .talk-year { font-size: .75rem; color: var(--ink-light); font-weight: 500; padding-top: 2px; text-align: right; }
+    .talk-title { font-size: .88rem; font-weight: 500; color: var(--ink); }
+    .talk-venue { font-size: .78rem; color: var(--ink-mid); margin-top: 3px; font-style: italic; }
+
+    /* ── SERVICE ── */
+    .service-list { display: flex; flex-direction: column; gap: 10px; }
+    .service-item { font-size: .86rem; color: var(--ink-mid); padding-left: 14px; position: relative; }
+    .service-item::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+    .service-item strong { color: var(--ink); font-weight: 500; }
+
+    /* ── SUPERVISION ── */
+    .phd-list { display: flex; flex-direction: column; gap: 10px; }
+    .phd-item { font-size: .86rem; color: var(--ink-mid); line-height: 1.55; }
+    .phd-item strong { color: var(--ink); font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 72px;
+      border-top: 1px solid var(--rule);
+      padding-top: 28px;
+      font-size: .75rem;
+      color: var(--ink-light);
+      text-align: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-avatar { width: 90px; height: 90px; order: -1; }
+      .tl-item { grid-template-columns: 1fr; }
+      .tl-date { text-align: left; padding-top: 0; padding-bottom: 4px; }
+      .talk-item { grid-template-columns: 1fr; }
+      .talk-year { text-align: left; }
+      nav ul { gap: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="#" class="logo">R. Machaka</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#conferences">Conferences</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#patents">Patents</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero" id="about">
+    <div>
+      <h1 class="hero-name">Ronald Machaka</h1>
+      <span class="hero-cred">MIEAust — Professional Engineer &amp; Innovation Scholar</span>
+      <p class="hero-bio">
+        Advanced Materials Engineer and independent AI researcher based in Newcastle, NSW.
+        My work spans powder metallurgy, metal injection moulding, titanium alloy design,
+        and machine learning applied to complex metallurgical systems — from predicting
+        high-entropy alloy phase formation to decoding shape-memory thermal hysteresis
+        through explainable ML.
+      </p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n">82</span><span class="stat-l">Publications</span></div>
+        <div class="stat"><span class="stat-n">1,126</span><span class="stat-l">Citations</span></div>
+        <div class="stat"><span class="stat-n">56,427</span><span class="stat-l">Reads</span></div>
+      </div>
+      <div class="hero-links">
+
+        <a href="https://m-chaka.github.io" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.074.547-.173.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.889-1.17-.889-1.17-.727-.497.055-.487.055-.487.803.057 1.226.825 1.226.825.713 1.222 1.872.869 2.328.664.072-.516.279-.869.508-1.069-1.776-.202-3.644-.888-3.644-3.953 0-.874.312-1.588.823-2.147-.082-.202-.357-1.016.078-2.117 0 0 .672-.215 2.2.82A7.67 7.67 0 0 1 8 4.065a7.67 7.67 0 0 1 2.004.27c1.527-1.035 2.198-.82 2.198-.82.436 1.101.162 1.915.08 2.117.513.56.822 1.273.822 2.147 0 3.073-1.871 3.749-3.653 3.947.287.247.543.735.543 1.481 0 1.069-.01 1.93-.01 2.193 0 .214.144.463.55.385A8.002 8.002 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          m-chaka.github.io
+        </a>
+        <a href="https://scholar.google.com/citations?user=x6eG1JsAAAAJ&hl=en" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18V17c0 2.21 2.69 4 6 4s6-1.79 6-4v-5.82L23 9 12 3zm6 13c0 1.1-2.24 2-5 2s-5-.9-5-2v-4.45l5 2.73 5-2.73V16zM12 13.27 4.18 9 12 4.73 19.82 9 12 13.27z"/></svg>
+          Google Scholar
+        </a>
+        <a href="https://www.researchgate.net/profile/Ronald-Machaka?ev=hdr_xprf" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zm-2.172 16.168h-1.902v-3.73c0-.936-.018-2.142-1.305-2.142-1.307 0-1.507.999-1.507 2.073v3.8H10.8V9.34h1.827v1.08h.026c.254-.481.875-1.09 1.8-1.09 1.927 0 2.284 1.235 2.284 2.843v3.996H17.414zm-8.82-7.63a1.41 1.41 0 1 1 0-2.82 1.41 1.41 0 0 1 0 2.82zm.96 7.63H7.585V9.34h1.97v6.829z"/></svg>
+          ResearchGate
+        </a>
+        <a href="https://orcid.org/0000-0002-3174-8703" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zm-20.6 66.4h-16V189h16V66.4zm37.4 0h-16v16.8h16V66.4zm0 32.8h-16V189h16v-89.8zm25 0c0-13 10.6-23.6 23.6-23.6s23.6 10.6 23.6 23.6-10.6 23.6-23.6 23.6-23.6-10.5-23.6-23.6zm0 57h47.2V189h-47.2v-32.8z"/></svg>
+          ORCID
+        </a>
+      </div>
+    </div>
+    <div class="hero-avatar">
+      <img src="data:image/jpeg;base64,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" alt="Ronald Machaka" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+    </div>
+  </div>
+
+  <!-- RESEARCH INTERESTS -->
+  <section id="interests">
+    <h2 class="section-title">Research Interests</h2>
+    <div class="chips">
+      <span class="chip">Advanced Materials Engineering</span>
+      <span class="chip">Powder Metallurgy &amp; MIM</span>
+      <span class="chip">Titanium Alloys</span>
+      <span class="chip">Additive Manufacturing (LENS)</span>
+      <span class="chip">High-Entropy Alloys</span>
+      <span class="chip">Machine Learning in Metallurgy</span>
+      <span class="chip">Explainable AI</span>
+      <span class="chip">Shape Memory Alloys</span>
+      <span class="chip">Technology Commercialisation</span>
+      <span class="chip">Lean Manufacturing</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date">Jul 2023 – Present</div>
+        <div class="tl-body">
+          <div class="tl-title">Lean Manufacturing &amp; Materials Engineer</div>
+          <div class="tl-org">New Macey Pty Ltd — Newcastle, NSW</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Lead continuous improvement and Lean initiatives for waterproof/flameproof electrical couplers used in mining, tunnelling, and defence.</li>
+              <li>Manage electroplating quality control (Ni &amp; Ag plating), bath calibration, and laboratory verification.</li>
+              <li>Design custom fixtures and 3D CAD assemblies (Solidworks/Inventor) to improve production speed and manufacturability.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Jun 2022 – Present</div>
+        <div class="tl-body">
+          <div class="tl-title">Independent AI / ML Researcher in Advanced Metallurgy</div>
+          <div class="tl-org">Newcastle, NSW (Independent)</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Pioneer explainable machine learning models for predicting narrow thermal hysteresis in HT-SMAs and phase formation in HEAs.</li>
+              <li>Author peer-reviewed manuscripts and develop open-access high-dimensional datasets combining experimental and computational data.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2019 – 2022</div>
+        <div class="tl-body">
+          <div class="tl-title">Visiting Associate Professor of Metallurgy</div>
+          <div class="tl-org">University of Johannesburg</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Contributed to the GES 4.0 / 4IR initiative; formulated computational materials research themes.</li>
+              <li>Supervised Master's and Doctoral candidates in ML for alloy design.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2012 – 2022</div>
+        <div class="tl-body">
+          <div class="tl-title">Principal Researcher → Senior Researcher, Advanced Materials Engineering</div>
+          <div class="tl-org">CSIR — Pretoria, South Africa</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Technical Champion for MIM commercialisation; led binder development to TRL 6 and secured TIA seed finance for commercial spin-out.</li>
+              <li>Led spherical titanium powder production programs for additive manufacturing (LENS) and co-invented low-cost powder-to-billet Ti processing technologies.</li>
+              <li>Managed portfolios exceeding R32M; authored high-impact publications; mentored PostDocs and postgraduate students.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2011 – 2012</div>
+        <div class="tl-body">
+          <div class="tl-title">Materials Scientist / Concept Scientist</div>
+          <div class="tl-org">Element Six Production — Springs, South Africa</div>
+          <div class="tl-desc">
+            <ul>
+              <li>HPHT diamond grit synthesis and cutting tool development for construction and oil &amp; gas.</li>
+              <li>Authored key invention disclosures on high aspect ratio diamond grit.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2004 – 2011</div>
+        <div class="tl-body">
+          <div class="tl-title">Research &amp; Teaching Assistant</div>
+          <div class="tl-org">iThemba LABS &amp; University of the Witwatersrand</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Ion implantation, Raman spectroscopy, and nanoparticle synthesis research.</li>
+              <li>Awarded Best PhD Oral Presentation at the 55th SAIP Annual Conference (2010).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date">Aug 2021</div>
+        <div class="tl-body">
+          <div class="tl-title">Recognition of Overseas Qualifications — Professional Engineer</div>
+          <div class="tl-org">Engineers Australia (MIEAust)</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2017 – 2019</div>
+        <div class="tl-body">
+          <div class="tl-title">Master in Management (Innovation Studies) — <em>Distinction</em></div>
+          <div class="tl-org">Wits Business School, University of the Witwatersrand</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2008 – 2011</div>
+        <div class="tl-body">
+          <div class="tl-title">PhD, Materials Science &amp; Engineering</div>
+          <div class="tl-org">School of Chemical &amp; Metallurgical Engineering, Wits</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2004 – 2006</div>
+        <div class="tl-body">
+          <div class="tl-title">MSc by Research, Materials Science Physics</div>
+          <div class="tl-org">School of Physics, University of the Witwatersrand</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">1999 – 2003</div>
+        <div class="tl-body">
+          <div class="tl-title">BSc Honours, Applied Physics</div>
+          <div class="tl-org">National University of Science &amp; Technology, Zimbabwe</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2 class="section-title">Peer-Reviewed Journal Articles <span style="font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:400;color:var(--ink-light);margin-left:8px;">82 publications total</span></h2>
+    <p style="font-size:.82rem;color:var(--ink-light);margin-bottom:24px;">Selected articles, newest first. Full list on <a href="https://www.researchgate.net/profile/Ronald-Machaka" target="_blank" style="color:var(--accent);">ResearchGate</a> and <a href="https://scholar.google.com/citations?user=x6eG1JsAAAAJ&hl=en" target="_blank" style="color:var(--accent);">Google Scholar</a>.</p>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2025</span><em>Study of microstructure and mechanical properties of a Ti-11Mo-11Nb alloy</em></div>
+        <div class="pub-meta">L. Raganya, B.A. Obadele, N.A. Moshokoa, … R. Machaka — MRS Advances, Apr 2025</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2024</span><em>The influence of solution treatment on the phase evolution and tensile properties of binary Ti-Mo alloys</em></div>
+        <div class="pub-meta">N.A. Moshokoa, L. Raganya, R. Machaka, … B.A. Obadele — Journal of the SAIMM, Aug 2024</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2023</span><em>Prediction of narrow HT-SMA thermal hysteresis behaviour using explainable machine learning</em></div>
+        <div class="pub-meta">R. Machaka, P.M. Radingoana — Materials Today Communications 35 (2023) 105806</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2023</span><em>Datasets of Narrow Thermal Hysteresis Behaviour Ti-Ni-based HT-SMAs and the Predicted Accumulated Local Effects</em></div>
+        <div class="pub-meta">R. Machaka, P.M. Radingoana — Data in Brief, Oct 2023</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2022</span><em>Effect of Nb glue atom in the cluster formula on the microstructure and mechanical properties of Ti-Mo alloy</em></div>
+        <div class="pub-meta">L. Raganya, N.A. Moshokoa, B.A. Obadele, … R. Machaka — Suid-Afrikaanse Tydskrif vir Natuurwetenskap en Tegnologie, Jan 2022</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2022</span><em>Influence of Sn on the microstructure and mechanical properties of Ti-Mo-Nb alloys for orthopaedic applications</em></div>
+        <div class="pub-meta">N. Muchavi, L. Raganya, R. Machaka, … E. Makhatha — South African Journal of Industrial Engineering, Jan 2022</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2022</span><em>Structural, mechanical and electrochemical properties of spark plasma sintered Ti-30Ta alloys</em></div>
+        <div class="pub-meta">B. Bayode, L. Lethabane, T. Tayler, … P. Olubambi — Materials Science and Engineering B, Jun 2022</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2021</span><em>Machine learning-based prediction of phases in high-entropy alloys</em></div>
+        <div class="pub-meta">R. Machaka — Computational Materials Science 188 (2021) 110244</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2021</span><em>Machine learning-based prediction of phases in high-entropy alloys: A data article</em></div>
+        <div class="pub-meta">R. Machaka, G.T. Motsi, L. Raganya, … S. Chikosha — Data in Brief, Sep 2021</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2021</span><em>Microstructure and mechanical properties of Ti-Mo-Nb alloys designed using the cluster-plus-glue-atom model for orthopedic applications</em></div>
+        <div class="pub-meta">L. Raganya, N.A. Moshokoa, B.A. Obadele, … R. Machaka — Int. J. Adv. Manuf. Technol. 115 (2021) 3053–3064</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2021</span><em>The effect of molybdenum content on the microstructural evolution and tensile properties of as-cast Ti-Mo alloys</em></div>
+        <div class="pub-meta">N.A. Moshokoa, L. Raganya, R. Machaka, … B.A. Obadele — Materials Today Communications, Apr 2021</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>Microstructural and mechanical properties of Ti-Mo alloys designed by the cluster plus glue atom model for biomedical application</em></div>
+        <div class="pub-meta">N.A. Moshokoa, L. Raganya, B.A. Obadele, … M.E. Makhatha — Int. J. Adv. Manuf. Technol., Nov 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>Microstructural Evolution and Mechanical Properties of Multiwall Carbon Nanotubes Reinforced Titanium-Based Nanocomposites Developed by Spark Plasma Sintering</em></div>
+        <div class="pub-meta">A.M. Okoro, R. Machaka, S. Lephuthing, … P. Olubambi — Metals and Materials International, Jun 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>Corrosion Behaviour of Ti–34Nb–25Zr Alloy Fabricated by Spark Plasma Sintering</em></div>
+        <div class="pub-meta">M. Mahundla, W.R. Matizamhuka, A. Yamamoto, … R. Machaka — Journal of Bio- and Tribo-Corrosion, Feb 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>Effect of spark plasma sintering temperature on the pore characteristics, porosity and compression strength of porous titanium foams</em></div>
+        <div class="pub-meta">I. Makena, M.B. Shongwe, R. Machaka, S. Masete — SN Applied Sciences, Mar 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>The effect of Ta additions on the oxidation resistance of SPS-produced TiAl alloys</em></div>
+        <div class="pub-meta">P. Cobbinah, W.R. Matizamhuka, R. Machaka, … Y. Yamabe-Mitarai — Int. J. Adv. Manuf. Technol., Feb 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2019</span><em>Nanoindentation studies of the mechanical behaviours of spark plasma sintered multiwall carbon nanotubes reinforced Ti6Al4V nanocomposites</em></div>
+        <div class="pub-meta">A.M. Okoro, R. Machaka, S. Lephuthing, … P. Olubambi — Materials Science and Engineering A, Aug 2019</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2019</span><em>Influence of spark plasma sintering temperature on porous titanium microstructural integrity, airflow resistance, and space holder removal</em></div>
+        <div class="pub-meta">I. Makena, M.B. Shongwe, R. Machaka, W.R. Matizamhuka — Int. J. Adv. Manuf. Technol., Oct 2019</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2019</span><em>The effect of PSD on properties of unimodal and bimodal powders using 17-4 PH stainless steel powder</em></div>
+        <div class="pub-meta">N. Muchavi, M. Seerane, R. Machaka — Int. J. Adv. Manuf. Technol., Nov 2019</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2019</span><em>Modelling and optimization of surface roughness during AISI P20 milling process using Taguchi method</em></div>
+        <div class="pub-meta">I. Tlhabadira, I.A. Daniyan, R. Machaka, … L.R. VanStaden — Int. J. Adv. Manuf. Technol., Jun 2019</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2019</span><em>Dispersion characteristics, interfacial bonding and nanostructural evolution of MWCNT in Ti6Al4V powders prepared by shift speed ball milling</em></div>
+        <div class="pub-meta">A.M. Okoro, R. Machaka, S. Lephuthing, … P. Olubambi — Journal of Alloys and Compounds, May 2019</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2018</span><em>Allotrope conversion and surface hardness increase in ion implanted boron nitride</em></div>
+        <div class="pub-meta">T.E. Derry, L. Lisema, A.T. Magabe, … M. Madhuku — Surface and Coatings Technology, Apr 2018</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2017</span><em>Capillary rheological studies of 17-4 PH MIM feedstocks prepared using a custom CSIR binder system</em></div>
+        <div class="pub-meta">R. Machaka, P. Ndlangamandla, M. Seerane — Powder Technology, Dec 2017</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2016</span><em>X-ray computed microtomography studies of MIM and DPR parts</em></div>
+        <div class="pub-meta">N. Muchavi, L. Bam, F.C. de Beer, … R. Machaka — Journal of the SAIMM, Oct 2016</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2015</span><em>Analysis of the Cold Compaction Behavior of Titanium Powders: A Comprehensive Inter-model Comparison Study of Compaction Equations</em></div>
+        <div class="pub-meta">R. Machaka, H.K. Chikwanda — Metallurgical and Materials Transactions A 46 (2015) 4286–4297</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2015</span><em>Consolidation of titanium hydride powders during the production of titanium PM parts: The effect of die wall lubricants</em></div>
+        <div class="pub-meta">C. Machio, R. Machaka, H. Chikwanda — Materials &amp; Design, Nov 2015</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2014</span><em>Room temperature nanoindentation creep of hot-pressed B₆O</em></div>
+        <div class="pub-meta">R. Machaka, T.E. Derry, I. Sigalas — Materials Science and Engineering A, Jun 2014</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2013</span><em>Mechanical and Structural Properties of Fluorine-Ion-Implanted Boron Suboxide</em></div>
+        <div class="pub-meta">R. Machaka, B.W. Mwakikunga, E. Manikandan, … M. Herrmann — Advances in Materials Science and Engineering, Feb 2013</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2012</span><em>Raman spectra of hot-pressed boron suboxide</em></div>
+        <div class="pub-meta">R. Machaka, B.W. Mwakikunga, E. Manikandan, … I. Sigalas — Advanced Materials Letters, Mar 2012</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2011</span><em>Nanoindentation Hardness of Hot-Pressed Boron Suboxide</em></div>
+        <div class="pub-meta">R. Machaka, T.E. Derry, I. Sigalas — Materials Science and Engineering A, Jul 2011</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2011</span><em>Analysis of the Indentation Size Effect in the Microhardness Measurements in B₆O</em></div>
+        <div class="pub-meta">R. Machaka, T.E. Derry, I. Sigalas — Advances in Materials Science and Engineering, Jan 2011</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONFERENCE PAPERS -->
+  <section id="conferences">
+    <h2 class="section-title">Conference Papers &amp; Proceedings</h2>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2024</span><em>The influence of solution treatment on the phase evolution and tensile properties of binary Ti-Mo alloys</em></div>
+        <div class="pub-meta">N.A. Moshokoa, L. Raganya, R. Machaka, … B.A. Obadele — Conference Paper, Jan 2024</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2023</span><em>Spark plasma sintered Ti-35Nb-7Zr-5Ta-1Cu alloy</em></div>
+        <div class="pub-meta">T.R. Nkuna, L.M. Teffo, M.B. Shongwe, R. Machaka — MATEC Web of Conferences, Dec 2023</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2022</span><em>Microstructure and bending properties of solution-treated Ti-Mo binary alloys for biomedical applications</em></div>
+        <div class="pub-meta">N.A. Moshokoa, L. Raganya, R. Machaka, … M.E. Makhatha — MATEC Web of Conferences, Dec 2022</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2022</span><em>Microstructure and tensile properties of heat-treated Ti-Mo alloys</em></div>
+        <div class="pub-meta">L. Raganya, N.A. Moshokoa, R. Machaka, … M.E. Makhatha — MATEC Web of Conferences, Dec 2022</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>The effect of alloying elements on densification and mechanical behaviour of titanium based alloy</em></div>
+        <div class="pub-meta">M.L. Teffo, N.E. Nyakane, M. Seerane, … R. Machaka — Materials Today Proceedings, Oct 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>The effect of solution treatment on the microstructure and mechanical properties of as-cast Ti-Mo alloys</em></div>
+        <div class="pub-meta">N.A. Moshokoa, L. Raganya, B.A. Obadele, … R. Machaka — Materials Today Proceedings, Jul 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>Investigation of the tensile properties of heat treated Ti-Mo alloys</em></div>
+        <div class="pub-meta">L. Raganya, N.A. Moshokoa, B.A. Obadele, … R. Machaka — Materials Today Proceedings, Jul 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>Study of the microstructure and crystal orientation of as-cast Ti-10.2Mo-19.5Nb alloy</em></div>
+        <div class="pub-meta">L. Raganya, N.A. Moshokoa, B.A. Obadele, … R. Machaka — Materials Today Proceedings, Jul 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>The high-temperature performance of Ti-46.5Al-xTa alloys produced using SPS</em></div>
+        <div class="pub-meta">P. Cobbinah, W.R. Matizamhuka, R. Machaka, … Y. Yamabe-Mitarai — Materials Today Proceedings, Mar 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>The effect of Cr additions and oxidation on densification, microstructure and mechanical properties of TiAlCr alloys produced by SPS</em></div>
+        <div class="pub-meta">N.F. Mogale, W.R. Matizamhuka, R. Machaka, … Y. Yamabe-Mitarai — Materials Today Proceedings, Apr 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>Densification behaviour of spark plasma sintered multiwall carbon nanotubes reinforced Ti6Al4V nanocomposites</em></div>
+        <div class="pub-meta">A.M. Okoro, S. Lephuthing, R. Machaka, … P. Olubambi — Materials Today Proceedings, Dec 2019</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>Nanomechanical properties of spark plasma sintered MWCNT-reinforced Ti6Al4V nanocomposites via nanoindentation</em></div>
+        <div class="pub-meta">A.M. Okoro, S. Lephuthing, M. Awotunde, … P. Olubambi — Materials Today Proceedings, Jan 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2020</span><em>Effect of Nb content on the microstructure and mechanical properties of binary Ti-Nb alloys</em></div>
+        <div class="pub-meta">L. Fikeni, K. Annan, K. Mutombo, R. Machaka — Materials Today Proceedings, Jun 2020</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2019</span><em>Effects of Mo content on the microstructural and mechanical properties of as-cast Ti-Mo alloys</em></div>
+        <div class="pub-meta">N.A. Moshokoa, L. Raganya, B.A. Obadele, … R. Machaka — IOP Conference Series: Materials Science and Engineering, Oct 2019</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2019</span><em>Biocompatibility study of Ti-based alloys fabricated by spark plasma sintering</em></div>
+        <div class="pub-meta">M. Mahundla, W.R. Matizamhuka, R. Machaka, … M.B. Shongwe — IOP Conference Series: Materials Science and Engineering, Oct 2019</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2019</span><em>The microstructural and mechanical characterization of the β-type Ti-11.1Mo-10.8Nb alloy for biomedical applications</em></div>
+        <div class="pub-meta">L. Raganya, N.A. Moshokoa, B.A. Obadele, … R. Machaka — IOP Conference Series: Materials Science and Engineering, Oct 2019</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2019</span><em>Development of a biocompatible Ti-Nb alloy for orthopaedic applications</em></div>
+        <div class="pub-meta">L. Fikeni, K. Annan, M. Seerane, … R. Machaka — IOP Conference Series: Materials Science and Engineering, Oct 2019</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2019</span><em>Metal injection moulding of 17-4PH stainless steel: effects of porosity on the mechanical properties of sintered products</em></div>
+        <div class="pub-meta">M. Seerane, R. Machaka — IOP Conference Series: Materials Science and Engineering, Oct 2019</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2018</span><em>Production of spherical titanium based powders from powder metallurgy bars</em></div>
+        <div class="pub-meta">C.N. Machio, R. Machaka, T. Motsai, … P. Rossouw — Conference Paper, Nov 2018</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2018</span><em>Sintering performance and corrosion behaviour of biomedical Ti-24Nb-4Zr-8Sn alloy produced using SPS</em></div>
+        <div class="pub-meta">J. Madonsela, W.R. Matizamhuka, R. Machaka, … A. Yamamoto — IOP Conference Series: Materials Science and Engineering, Oct 2018</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2018</span><em>Structural integrity and dispersion characteristics of carbon nanotubes in titanium-based alloy</em></div>
+        <div class="pub-meta">A.M. Okoro, R. Machaka, S. Lephuthing, … P. Olubambi — IOP Conference Series: Materials Science and Engineering, Oct 2018</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2018</span><em>Metal injection moulding of a 17-4 PH stainless steel: a comparative study of mechanical properties</em></div>
+        <div class="pub-meta">R. Machaka — IOP Conference Series: Materials Science and Engineering, Oct 2018</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2015</span><em>Kinetics of titanium metal injection moulding feedstock thermal debinding</em></div>
+        <div class="pub-meta">R. Machaka, H. Chikwanda — Materials Science Forum, Aug 2015</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2015</span><em>Analysis of the cold compaction behaviour of TiH₂-316L nanocomposite powder blend using compaction models</em></div>
+        <div class="pub-meta">C. Machio, R. Machaka, T. Shabalala, H. Chikwanda — Materials Science Forum, Aug 2015</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2015</span><em>Determination of optimum process for thermal debinding and sintering using Taguchi method</em></div>
+        <div class="pub-meta">M. Seerane, H. Chikwanda, R. Machaka — Materials Science Forum, Aug 2015</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2015</span><em>Evaluating the Johanson theory for titanium powder</em></div>
+        <div class="pub-meta">S. Chikosha, R. Machaka, H. Chikwanda — Materials Science Forum, Aug 2015</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2014</span><em>Binder development for metal injection molding: a CSIR perspective</em></div>
+        <div class="pub-meta">R. Machaka, H. Chikwanda, M. Seerane — Conference Paper, May 2014</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title"><span class="pub-tag">2013</span><em>Investigation of the powder loading of gas-atomized Ti6Al4V powder using an in-house binder for metal injection moulding</em></div>
+        <div class="pub-meta">M. Seerane, H. Chikwanda, W. Focke, R. Machaka — Conference Paper, Sep 2013</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PATENTS -->
+  <section id="patents">
+    <h2 class="section-title">Patents &amp; Inventions</h2>
+    <div class="patent-list">
+
+      <div class="patent-item">
+        <div class="patent-id">
+          <a href="https://worldwide.espacenet.com/patent/search/family/061008864/publication/ZA202003526B?q=pn%3DZA202003526B" target="_blank" style="color:var(--accent);text-decoration:none;">WO2019118991A1 &nbsp;/&nbsp; GB2575005B</a>
+          &nbsp;— &nbsp;<span style="color:#1a7a1a;font-weight:500;">Granted (International)</span>
+        </div>
+        <div class="patent-title">A process and method for producing titanium and titanium alloy billets, spherical and non-spherical powder</div>
+        <div class="patent-meta">
+          Inventors: R. Machaka (30%), T. Motsai, S. Chikosha, C.N. Machio &nbsp;·&nbsp; Assignee: CSIR<br>
+          Priority: 14 Dec 2017 &nbsp;·&nbsp; PCT filed: Dec 2018 &nbsp;·&nbsp; GB granted: Dec 2020
+        </div>
+        <div style="font-size:.8rem;color:var(--ink-mid);margin-top:8px;line-height:1.6;">A melt-free solid-state sintering route for producing dense titanium and titanium alloy billets and both spherical and non-spherical powders from Ti sponge, TiHDH, TiH₂ and CP Ti feedstocks — enabling low-cost supply for additive manufacturing, metal injection moulding, and hot isostatic pressing.</div>
+      </div>
+
+      <div class="patent-item">
+        <div class="patent-id">
+          ZA202003526B
+          &nbsp;— &nbsp;<span style="color:#1a7a1a;font-weight:500;">Granted (South African National)</span>
+        </div>
+        <div class="patent-title">A process and method for producing titanium and titanium alloy billets, and spherical powder</div>
+        <div class="patent-meta">
+          Inventors: R. Machaka (30%), T. Motsai, S. Chikosha, C.N. Machio &nbsp;·&nbsp; Assignee: CSIR<br>
+          Priority: 14 Dec 2017 &nbsp;·&nbsp; ZA granted: Jun 2022
+        </div>
+        <div style="font-size:.8rem;color:var(--ink-mid);margin-top:8px;line-height:1.6;">South African national patent covering the solid-state capsule-based sintering method to produce titanium and titanium alloy billets and spherical powders, optionally incorporating alloying elements.</div>
+      </div>
+
+      <div class="patent-item">
+        <div class="patent-id">CSIR Invention Disclosure &nbsp;— &nbsp;<span style="color:#1a7a1a;font-weight:500;">Granted TRL 6, Apr 2018</span></div>
+        <div class="patent-title">In-house binder system and feedstocks for metal injection moulding</div>
+        <div class="patent-meta">Inventors: R. Machaka, M. Seerane, F. Pereira &nbsp;·&nbsp; CSIR &nbsp;·&nbsp; Granted April 2018 at Technology Readiness Level 6</div>
+        <div style="font-size:.8rem;color:var(--ink-mid);margin-top:8px;line-height:1.6;">Proprietary wax-based binder system and custom MIM feedstock formulations validated to TRL 6, underpinning the TIA-funded commercialisation spin-out facility.</div>
+      </div>
+
+      <div class="patent-item">
+        <div class="patent-id">Element Six Invention Disclosure &nbsp;— &nbsp;<span style="color:#b07a00;font-weight:500;">Accepted Jul 2013</span></div>
+        <div class="patent-title">High aspect ratio diamond grit and method</div>
+        <div class="patent-meta">Inventor: R. Machaka &nbsp;·&nbsp; Element Six Production (SA) &nbsp;·&nbsp; Accepted July 2013</div>
+        <div style="font-size:.8rem;color:var(--ink-mid);margin-top:8px;line-height:1.6;">Invention disclosure on high aspect ratio synthetic diamond grit morphology and synthesis method for cutting tool applications in construction and oil &amp; gas sectors.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <h2 class="section-title">Grants, Honours &amp; Awards</h2>
+    <div class="awards-grid">
+
+      <div class="award-card">
+        <div class="award-year">2021</div>
+        <div class="award-title">NRF C-Rating Recognition</div>
+        <div class="award-body">Established Researcher with sustained recent outputs; NRF Gratuity Grant.</div>
+        <div class="award-amount">R50,000</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-year">2020</div>
+        <div class="award-title">CSIR Excellence Outstanding Team Award</div>
+        <div class="award-body">Powder Metallurgy &amp; MIM Commercialisation team recognition.</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-year">2020</div>
+        <div class="award-title">DSI/NRF Professional Development Programme</div>
+        <div class="award-body">Postdoctoral Development for advanced materials researchers.</div>
+        <div class="award-amount">R700,000</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-year">2019</div>
+        <div class="award-title">High-End Infrastructure Grant (HIP)</div>
+        <div class="award-body">National research infrastructure grant for Hot Isostatic Pressing capability; co-author.</div>
+        <div class="award-amount">R24,000,000</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-year">2019</div>
+        <div class="award-title">GES 4.0 Grant — University of Johannesburg</div>
+        <div class="award-body">Computational Materials Research &amp; AI in Metallurgy initiative.</div>
+        <div class="award-amount">R5,000,000</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-year">2018</div>
+        <div class="award-title">TIA Seed Fund — Lead PI</div>
+        <div class="award-body">Commercialisation spin-out for custom MIM feedstocks.</div>
+        <div class="award-amount">R1,500,000</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-year">2016</div>
+        <div class="award-title">NRF Y-Rating &amp; CSIR Emerging Researcher Award</div>
+        <div class="award-body">Recognised as a promising young researcher.</div>
+        <div class="award-amount">R350,000</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-year">2013</div>
+        <div class="award-title">CSIR Young Researcher Establishment Fund</div>
+        <div class="award-body">Micro-metal injection moulding of titanium micro-components.</div>
+        <div class="award-amount">R1,000,000</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <h2 class="section-title">Teaching &amp; Academic Experience</h2>
+    <div class="talk-list">
+
+      <div class="talk-item">
+        <div class="talk-year">2019 – 2026</div>
+        <div>
+          <div class="talk-title">Visiting Associate Professor</div>
+          <div class="talk-venue">School of Mining, Metallurgy &amp; Chemical Engineering, University of Johannesburg</div>
+          <div class="tl-desc" style="margin-top:8px;">
+            <ul>
+              <li>Machine Learning and Powder Metallurgy Lecture Series</li>
+              <li>MEng (Course: Sustainable Advanced &amp; Nanoengineered Materials)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">2014 – 2022</div>
+        <div>
+          <div class="talk-title">Powder Metallurgy Guest Lecturer and Moderator</div>
+          <div class="talk-venue">Department of Chemical, Metallurgical &amp; Materials Engineering, Tshwane University of Technology</div>
+          <div class="tl-desc" style="margin-top:8px;">
+            <ul>
+              <li>Day 2: Powder Processing Techniques — 27 Jun 2014</li>
+              <li>Applied Mineral Processing IV</li>
+              <li>Ferro-Alloy Technology IV</li>
+              <li>Metallurgical Thermodynamics III</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">2004 – 2010</div>
+        <div>
+          <div class="talk-title">Teaching Assistant</div>
+          <div class="talk-venue">School of Physics, University of the Witwatersrand, Johannesburg</div>
+          <div class="tl-desc" style="margin-top:8px;">
+            <ul>
+              <li>Applied Physics / Mechanics (Physics 1034)</li>
+              <li>Engineering Physics (PHYS1032A)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TALKS -->
+  <section id="talks">
+    <h2 class="section-title">Invited Talks &amp; Presentations</h2>
+    <div class="talk-list">
+
+      <div class="talk-item">
+        <div class="talk-year">2021</div>
+        <div>
+          <div class="talk-title">Metal Injection Moulding at the CSIR: Lessons from Commercialisation</div>
+          <div class="talk-venue">Keynote — CoSAAMI-2021, South Africa</div>
+        </div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">2021</div>
+        <div>
+          <div class="talk-title">Metal Injection Moulding v Additive Manufacturing: An Accidental Case Study</div>
+          <div class="talk-venue">International Conference on Injection Molding of Metals, Ceramics &amp; Carbides (MIM2021)</div>
+        </div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">2020</div>
+        <div>
+          <div class="talk-title">Machine Learning-Based Prediction of Phases in High-Entropy Alloys</div>
+          <div class="talk-venue">Invited Seminar — Centre for Nanoengineering &amp; Tribocorrosion, University of Johannesburg</div>
+        </div>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-year">2016</div>
+        <div>
+          <div class="talk-title">Versatility of a Custom-Developed MIM Binder System</div>
+          <div class="talk-venue">MIM2016 — Irvine, CA, USA</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SUPERVISION -->
+  <section id="supervision">
+    <h2 class="section-title">Higher Degrees Supervision</h2>
+    <p style="font-size:.85rem; color:var(--ink-mid); margin-bottom:18px;">
+      University of Johannesburg (UJ), University of Limpopo (UL), Tshwane University of Technology (TUT), and Vaal University of Technology (VUT).
+    </p>
+    <div class="awards-grid">
+
+      <div class="award-card">
+        <div class="award-year">Postdoctoral</div>
+        <div class="award-title" style="font-size:1.6rem;font-family:'EB Garamond',serif;color:var(--accent);">4</div>
+        <div class="award-body">Postdoctoral Fellows mentored</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-year">PhD</div>
+        <div class="award-title" style="font-size:1.6rem;font-family:'EB Garamond',serif;color:var(--accent);">4</div>
+        <div class="award-body">Doctoral candidates graduated</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-year">Master's</div>
+        <div class="award-title" style="font-size:1.6rem;font-family:'EB Garamond',serif;color:var(--accent);">16</div>
+        <div class="award-body">Master's students graduated</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICE -->
+  <section id="service">
+    <h2 class="section-title">Academic &amp; Professional Service</h2>
+    <div class="service-list">
+      <div class="service-item"><strong>Editorial Board Member:</strong> Data in Brief (Elsevier), ISSN 2352-3409 (2019–2025)</div>
+      <div class="service-item"><strong>Guest / Co-Editor:</strong> Materials Today: Proceedings (2020); IOP Conference Series: Materials Science and Engineering (2018)</div>
+      <div class="service-item"><strong>Grant Assessor &amp; Moderator:</strong> National Research Foundation (NRF), South Africa; CSIR Competitive Grants (2015–2022)</div>
+      <div class="service-item"><strong>Journal Reviewer:</strong> Materials Today, Computational Materials Science, Powder Technology, Journal of Alloys and Compounds, SAIMM Journal, Data in Brief</div>
+      <div class="service-item"><strong>Higher Degrees Theses/Dissertations/Reports Examiner:</strong> University of the Witwatersrand (Wits), University of Johannesburg (UJ), University of Limpopo (UL), Tshwane University of Technology (TUT), Vaal University of Technology (VUT), Stellenbosch University (SU)</div>
+    </div>
+  </section>
+
+</div><!-- /page -->
+
+<footer>
+  <p>Ronald Machaka · MIEAust · Newcastle, NSW, Australia</p>
+  <p style="margin-top:6px;">+61 431 226 738</p>
+</footer>
+
+</body>
+</html>
